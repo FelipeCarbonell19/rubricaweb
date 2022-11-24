@@ -7,7 +7,7 @@ const Inicio = () => {
         <div className="col-12">
           <span>
             <ul type="square">
-              <h1 className="text-center mt-3 mb-4" >Rubrica Desarrollo Web 2</h1>
+              <h1 className="text-center mt-3 mb-4" >Rubrica Desarrollo Web</h1>
               <h2 className="text-center mt-3 mb-4">Integrantes</h2>
               <li>
                 Alejandro Gonzalez Rubio
