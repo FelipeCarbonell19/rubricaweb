@@ -98,11 +98,11 @@ const Tareas = (props) => {
     e.preventDefault();
 
     if (!descripcion.trim()) {
-      setError("La descripcion no debe quedar vacio");
+      setError("La descripcion no debe quedar vacía");
       return;
     }
     if (!ubicacion.trim()) {
-      setError("La ubicacion no debe quedar vacio");
+      setError("La ubicacion no debe quedar vacía");
       return;
     }
     if (!categoriaP.trim()) {
@@ -151,7 +151,7 @@ const Tareas = (props) => {
   if (categoriaP === "Servicios") {
     mostrar = (
       <>
-        <option>Aseo</option>
+        <option >Aseo</option>
         <option>Transporte</option>
         <option>Vigilancia</option>
       </>
@@ -179,9 +179,9 @@ const Tareas = (props) => {
 
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12">
-          <h2 className="text-center">
+      <div className="row mt-3">
+        <div className="col-6">
+          <h2 className="text-center mb-3">
             {modoEdicion
               ? "Edicion de Requerimientos"
               : "Registro de Requerimientos"}
@@ -193,7 +193,7 @@ const Tareas = (props) => {
               </div>
             ) : null}
             <select
-              className="form-select mb-2"
+              className="form-select mb-3"
               onChange={(e) => {
                 setCategoriaP(e.target.value);
               }}
@@ -205,7 +205,7 @@ const Tareas = (props) => {
             </select>
 
             <select
-              className="form-select mb-2"
+              className="form-select mb-3"
               onChange={(e) => {
                 setTipoServicio(e.target.value);
               }}
@@ -216,7 +216,7 @@ const Tareas = (props) => {
             <input
               type="text"
               placeholder="Ingrese la descripcion"
-              className="form-control mb-2"
+              className="form-control mb-3"
               onChange={(e) => {
                 setDescrip(e.target.value);
               }}
@@ -225,7 +225,7 @@ const Tareas = (props) => {
             <input
               type="text"
               placeholder="Ingrese hacia donde va dirigido el servicio"
-              className="form-control mb-2"
+              className="form-control mb-3"
               onChange={(e) => {
                 setUbicacion(e.target.value);
               }}
@@ -244,18 +244,25 @@ const Tareas = (props) => {
             </div>
           </form>
         </div>
-      </div>
-      <hr />
-      <div className="row">
-        <div className="cold-12">
-          <h2 className="text-center">Lista Solicitudes</h2>
+        <div className="col-6">
+          <h2 className="text-center mb-3">Lista Solicitudes</h2>
           <ul className="list-group">
             {lista.map((elemento) => (
-              <li className="list-group-item" key={elemento.id}>
-                {" "}
-                <b>Descripcion :</b> {elemento.descripcion} <b>Ubicacion :</b>{" "}
-                {elemento.ubicacion} <b>Categoria :</b> {elemento.categoriaP}{" "}
-                <b>Servicio :</b> {elemento.tipoServicio}
+              <li className="list-group-item text-break" key={elemento.id}>
+                
+                <div className="col">
+                  <p><b>Descripcion :</b> {elemento.descripcion} </p>
+                </div>
+                <div className="col">
+                  <p><b>Ubicacion :</b> {elemento.ubicacion}</p>
+                </div>
+                <div className="col">
+                <p><b>Categoria :</b> {elemento.categoriaP}</p>
+                </div>
+                <div className="col">
+                  <p><b>Servicio :</b> {elemento.tipoServicio}</p>
+                </div>
+
                 <button
                   className="btn btn-primary float-end mx-2"
                   onClick={() => editar(elemento)}
@@ -273,7 +280,7 @@ const Tareas = (props) => {
           </ul>
         </div>
       </div>
-    </div>
+      </div>
   );
 };
 

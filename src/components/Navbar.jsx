@@ -10,33 +10,28 @@ const Navbar = (props) => {
     });
   };
   return (
-    <div className="navbar navbar-primary bg-primary">
-      <Link className="btn btn-primary mx-3" to="/">
-        Login
-      </Link>
-      <div>
-        <div className="d-flex">
-          <Link to="/" className="btn btn-primary mx-3">
-            Inicio
+    <div className="d-flex justify-content-end navbar navbar-primary bg-primary">
+      <div className="me-3">
+        <Link to="/" className="btn btn-primary">
+          Inicio
+        </Link>
+        {props.firebaseUser !== null ? (
+          <Link to="/admin" className="btn btn-primary">
+            Admin
           </Link>
-          {props.firebaseUser !== null ? (
-            <Link to="/admin" className="btn btn-primary mx-3">
-              Admin
-            </Link>
-          ) : null}
-          {props.firebaseUser !== null ? (
-            <button
-              className="btn btn-primary mx-3"
-              onClick={() => cerrarSesion()}
-            >
-              Cerrar Sesion
-            </button>
-          ) : (
-            <Link to="/login" className="btn btn-primary mx-3">
-              Login
-            </Link>
-          )}
-        </div>
+        ) : null}
+        {props.firebaseUser !== null ? (
+          <button
+            className="btn btn-primary"
+            onClick={() => cerrarSesion()}
+          >
+            Cerrar Sesion
+          </button>
+        ) : (
+          <Link to="/login" className="btn btn-primary">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
